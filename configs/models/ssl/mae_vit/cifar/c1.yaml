@@ -1,0 +1,19 @@
+patch_size: [4, 4]
+
+encoder:
+  emb_dim: 48
+  n_heads: 4
+  n_layers: 6
+
+decoder:
+  emb_dim: 32
+  n_heads: 4
+  n_layers: 4
+
+mlp_hidden_ratio: 4
+dropout: 0
+use_flash_attn: true
+
+mask_ratio: 0.75
+mask_size: [1, 1]
+norm_tokens: true

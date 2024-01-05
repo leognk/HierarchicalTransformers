@@ -1,0 +1,10 @@
+img_size: 32
+interpolation: bicubic
+crop_scale: [0.2, 1]
+crop_ratio: [0.75, 1.33]
+hflip: 0.5
+aa_config: rand-m9-mstd0.5-inc1
+aa_interpolation: bicubic
+color_jitter: null
+re_prob: 0.25
+re_value: random

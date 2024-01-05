@@ -1,0 +1,44 @@
+patch_size: [16, 16]
+
+encoder:
+  ctx_sizes: [[4, 4], [4, 4]]
+  qry_sizes: [[2, 2], [2, 2]]
+
+  emb_dims: [768, 768, 768]
+  mlp_hidden_ratios: [4, 4]
+  n_heads: [12, 12]
+
+  n_layers_codec:
+    forward: [[4], [4]]
+    backward: [[2], [2]]
+  attend_to_query:
+    forward: [true, true]
+    backward: [true, true]
+
+  n_passes: 2
+
+decoder:
+  ctx_sizes: [[4, 4], [4, 4], [4, 4]]
+  qry_sizes: [[2, 2], [2, 2], [2, 2]]
+
+  emb_dims: [512, 512, 512, 512]
+  mlp_hidden_ratios: [4, 4, 4]
+  n_heads: [16, 16, 16]
+
+  n_layers_codec:
+    forward: [[2], [2], [1]]
+    backward: [[1], [1], [1]]
+  attend_to_query:
+    forward: [true, true, true]
+    backward: [true, true, true]
+  
+  n_passes: 2
+  use_aux: false
+
+qry_init_method: learnable
+dropout: 0
+use_flash_attn: true
+
+mask_ratio: 0.76
+mask_size: [1, 1]
+norm_tokens: true

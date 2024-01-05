@@ -1,0 +1,4 @@
+name: cifar100
+data_root:
+  okatani: /home/user/datasets/CIFAR-100
+  akiu: /po2/goncalves/datasets/CIFAR-100

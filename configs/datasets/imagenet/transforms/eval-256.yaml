@@ -1,0 +1,3 @@
+img_size: 256
+interpolation: bicubic
+crop_pct: 0.875

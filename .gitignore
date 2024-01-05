@@ -1,0 +1,13 @@
+__pycache__/
+.vscode/
+
+host.yaml
+configs/*/variable/
+runs/
+wandb/
+scripts/
+logs/
+
+test[0-9]*.py
+restats/
+old/

@@ -1,0 +1,4 @@
+name: imagenet
+data_root:
+  okatani: /home/user/datasets/ImageNet
+  akiu: /po2/goncalves/datasets/ImageNet

@@ -1,0 +1,8 @@
+name: mini_imagenet_plus
+data_root:
+  okatani:
+    imagenet: /home/user/datasets/ImageNet
+    mini_imagenet: /home/user/datasets/mini-ImageNet
+  akiu:
+    imagenet: /po2/goncalves/datasets/ImageNet
+    mini_imagenet: /po2/goncalves/datasets/mini-ImageNet

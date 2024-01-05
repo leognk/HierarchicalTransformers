@@ -1,0 +1,16 @@
+patch_size: [16, 16]
+ctx_sizes: [[4, 4]]
+qry_sizes: [[2, 2]]
+
+emb_dims: [1024]
+mlp_hidden_dims: [4096]
+n_heads: [16]
+
+qry_init_method: learnable
+codec_steps_n_layers: [24]
+attend_to_query: true
+dropout: 0
+
+use_flash_attn: true
+
+n_passes: 1

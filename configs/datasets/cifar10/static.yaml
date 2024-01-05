@@ -1,0 +1,5 @@
+name: cifar10
+data_root:
+  leognk: D:/datasets/CIFAR-10
+  okatani: /home/user/datasets/CIFAR-10
+  akiu: /po2/goncalves/datasets/CIFAR-10

@@ -1,0 +1,10 @@
+patch_size: 4
+embed_dim: 128
+depths: [2, 2, 18, 2]
+num_heads: [4, 8, 16, 32]
+window_size: 8
+mlp_ratio: 4
+
+drop_rate: 0
+attn_drop_rate: 0
+drop_path_rate: 0

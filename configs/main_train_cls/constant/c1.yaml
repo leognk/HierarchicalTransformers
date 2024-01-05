@@ -1,0 +1,50 @@
+use_wandb: true
+
+dataset:
+  config_dir: cifar10
+  config: c1.yaml
+  transform:
+    train:
+      config: no_aug.yaml
+    eval:
+      config: no_aug.yaml
+
+model:
+  encoder:
+    from_ssl: false
+    config_dir: hvit4
+    config: cifar/c1.yaml
+    freeze: false
+  head:
+    config_dir: linear
+    config: c1.yaml
+  init:
+    ckpt: null
+    head: null
+
+optimizer:
+  config_dir: adamw
+  config: c1.yaml
+  lr:
+    scale_with_batch: true
+    lr: 1e-3
+    decay:
+      use: true
+      warmup_epochs: 5
+      epochs: null
+      min: 1e-4
+      layer_decay: null
+  weight_decay: 0.01
+
+n_epochs: 15
+batch_size: # tot % (per_wrk * n_wrk) = 0
+  train:
+    total: 512
+    per_worker: 256
+  eval:
+    per_worker: 512
+
+mixup:
+  mixup: 0.8
+  cutmix: 1.0
+  smoothing: 0.1

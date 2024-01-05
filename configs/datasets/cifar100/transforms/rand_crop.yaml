@@ -1,0 +1,5 @@
+img_size: 32
+interpolation: bicubic
+crop_scale: [0.5, 1]
+crop_ratio: [0.75, 1.33]
+hflip: 0.5

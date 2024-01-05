@@ -1,0 +1,43 @@
+use_wandb: true
+
+dataset:
+  config_dir: imagenet
+  train:
+    config: full.yaml
+  eval:
+    config: full.yaml
+  transform:
+    train:
+      config: rand_crop_scale=0.2-1.yaml
+    eval:
+      config: eval.yaml
+
+model:
+  config_dir: mae_vit
+  config: imagenet/base-16.yaml
+
+knn:
+  config: k=20.yaml
+  batch_size: 512
+
+optimizer:
+  config_dir: adamw
+  config: b2=0.95.yaml
+  lr:
+    scale_with_batch: true
+    lr: 1.5e-4
+    decay:
+      use: true
+      warmup_epochs: 40
+      epochs: null
+      min: 0
+      layer_decay: null
+  weight_decay: 0.05
+
+n_epochs: 800
+batch_size:
+  train: # tot % (per_wrk * n_wrk) = 0
+    total: 4096
+    per_worker: 128
+  eval:
+    per_worker: 512

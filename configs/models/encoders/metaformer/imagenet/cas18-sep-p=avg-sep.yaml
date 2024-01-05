@@ -1,0 +1,20 @@
+patch_size: [4, 4]
+
+emb_dims: [64, 128, 320, 512]
+depths: [3, 3, 9, 3]
+
+stem: {name: linear}
+
+poolings:
+  - {name: avg, kernel_size: 2, stride: 2, padding: 0}
+  - {name: avg, kernel_size: 2, stride: 2, padding: 0}
+  - {name: avg, kernel_size: 2, stride: 2, padding: 0}
+
+token_mixers:
+  - {name: conv}
+  - {name: conv}
+  - {name: attention}
+  - {name: attention}
+
+norm_spatial: false
+drop_path: 0.15

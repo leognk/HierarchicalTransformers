@@ -1,0 +1,45 @@
+use_wandb: true
+
+dataset:
+  config_dir: imagenet
+  config: full.yaml
+  transform:
+    train:
+      config: rand_aug.yaml
+    eval:
+      config: eval.yaml
+
+model:
+  encoder:
+    from_ssl: true
+    config_dir: mae_vit
+    config: imagenet/base-16.yaml
+    freeze: false
+  head:
+    config_dir: linear
+    config: init_std=2e-5.yaml
+  init:
+    ckpt: ssl/imagenet/test1
+    head: false
+
+optimizer:
+  config_dir: adamw
+  config: b2=0.999.yaml
+  lr:
+    scale_with_batch: true
+    lr: 1e-3
+    decay:
+      use: true
+      warmup_epochs: 5
+      epochs: null
+      min: 0
+      layer_decay: 0.75
+  weight_decay: 0.05
+
+n_epochs: 100
+batch_size:
+  train: # tot % (per_wrk * n_wrk) = 0
+    total: 1024
+    per_worker: 64
+  eval:
+    per_worker: 128

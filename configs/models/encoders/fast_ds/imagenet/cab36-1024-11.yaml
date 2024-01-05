@@ -1,0 +1,3 @@
+emb_dim: 1024
+depth: 11
+drop_path: 0.4

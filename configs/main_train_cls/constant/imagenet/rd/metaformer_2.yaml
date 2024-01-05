@@ -1,0 +1,50 @@
+use_wandb: true
+
+dataset:
+  config_dir: imagenet
+  config: full.yaml
+  transform:
+    train:
+      config: rand_aug.yaml
+    eval:
+      config: eval.yaml
+
+model:
+  encoder:
+    from_ssl: false
+    config_dir: metaformer
+    config: imagenet/poolformer_s12_avg.yaml
+    freeze: false
+  head:
+    config_dir: linear
+    config: init_std=1e-2.yaml
+  init:
+    ckpt: null
+    head: null
+
+optimizer:
+  config_dir: adamw
+  config: b2=0.999.yaml
+  lr:
+    scale_with_batch: true
+    lr: 2.5e-4 # lr = lr * tot_batch_size / 256
+    decay:
+      use: true
+      warmup_epochs: 5
+      epochs: null
+      min: 1e-5
+      layer_decay: null
+  weight_decay: 0.05
+
+n_epochs: 300
+batch_size: # tot % (per_wrk * n_wrk) = 0
+  train:
+    total: 4096
+    per_worker: 64
+  eval:
+    per_worker: 128
+
+mixup:
+  mixup: 0.8
+  cutmix: 1.0
+  smoothing: 0.1

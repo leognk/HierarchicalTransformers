@@ -1,0 +1,22 @@
+patch_size: [4, 4]
+
+ctx_sizes: [[7, 7], [8, 8], [8, 8], [8, 8]]
+qry_sizes: [[4, 4], [4, 4], [4, 4], [4, 4]]
+
+emb_dims: [64, 128, 256, 640, 640]
+mlp_hidden_ratios: [4, 4, 4, 4]
+n_heads: [2, 4, 8, 20]
+
+n_layers_codec:
+  forward: [[1, 1], [1, 1], [1, 1], [1, 1]]
+  backward: [[1, 1], [1, 1], [1, 1], [1, 1]]
+attend_to_query:
+  forward: [false, false, false, false]
+  backward: [false, false, false, false]
+
+qry_init_method: learnable
+dropout: 0
+use_flash_attn: true
+
+n_passes: 2
+use_aux: false

@@ -1,0 +1,22 @@
+patch_size: [4, 4]
+
+ctx_sizes: [[4, 4], [4, 4], [2, 2]]
+qry_sizes: [[2, 2], [2, 2], null]
+
+emb_dims: [128, 256, 512, 512]
+mlp_hidden_ratios: [2, 2, 2]
+n_heads: [4, 8, 16, 16]
+
+# n_layers_stages: [[2, 0], [7, 0], [2]]
+n_layers_stages: [[2, 1], [6, 1], [1]]
+
+qry_init_method: linear_pool
+dropout: 0
+drop_path: 0
+drop_cross_attn: true
+use_flash_attn: true
+
+add_abs_pos: false
+add_rel_pos: true
+
+shift_groups: true

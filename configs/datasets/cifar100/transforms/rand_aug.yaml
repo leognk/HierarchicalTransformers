@@ -1,0 +1,7 @@
+img_size: 32
+interpolation: bicubic
+crop_scale: [0.9, 1]
+crop_ratio: [0.9, 1.1]
+hflip: 0.5
+aa_config: rand-m9-mstd0.5-inc1
+aa_interpolation: bicubic

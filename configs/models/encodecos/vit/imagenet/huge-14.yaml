@@ -1,0 +1,11 @@
+patch_size: [14, 14]
+
+emb_dim: 1280
+mlp_hidden_ratio: 4
+n_heads: 16
+
+dropout: 0
+
+use_flash_attn: true
+
+n_layers: 32

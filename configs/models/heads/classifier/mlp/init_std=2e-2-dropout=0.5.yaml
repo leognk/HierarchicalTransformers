@@ -1,0 +1,5 @@
+hidden_ratio: 4
+dropout: 0.5
+norm: LayerNorm
+activation: SquaredReLU
+head_init_std: 2e-2

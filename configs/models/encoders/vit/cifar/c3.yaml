@@ -1,0 +1,12 @@
+patch_size: [4, 4]
+
+emb_dim: 192
+mlp_hidden_ratio: 2
+n_heads: 6
+
+dropout: 0
+drop_path: 0
+
+use_flash_attn: true
+
+n_layers: 8

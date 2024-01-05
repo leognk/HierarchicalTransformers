@@ -1,0 +1,17 @@
+patch_size: [4, 4]
+
+ctx_sizes: [[8, 8], [8, 8], [8, 8], [8, 8]]
+
+emb_dim: 96
+mlp_hidden_ratios: [4, 4, 4, 4]
+n_heads: [3, 6, 12, 24]
+
+n_layers_stages: [2, 2, 5, 2]
+use_double_stage: [false, false, true, false]
+
+dropout: 0
+drop_path: 0.2
+use_flash_attn: true
+
+add_abs_pos: false
+add_rel_pos: true

@@ -1,0 +1,43 @@
+use_wandb: false
+
+dataset:
+  config_dir: cifar10
+  train:
+    config: c1.yaml
+  eval:
+    config: c2.yaml
+  transform:
+    train:
+      config: no_aug.yaml
+    eval:
+      config: no_aug.yaml
+
+model:
+  config_dir: mae_unet1
+  config: c1.yaml
+
+knn:
+  config: k=20.yaml
+  batch_size: 512
+
+optimizer:
+  config_dir: adamw
+  config: c1.yaml
+  lr:
+    scale_with_batch: true
+    lr: 1e-3
+    decay:
+      use: true
+      warmup_epochs: 5
+      epochs: null
+      min: 1e-4
+      layer_decay: null
+  weight_decay: 0.01
+
+n_epochs: 15
+batch_size: # tot % (per_wrk * n_wrk) = 0
+  train:
+    total: 512
+    per_worker: 256
+  eval:
+    per_worker: 512
