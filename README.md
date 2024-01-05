@@ -2,7 +2,7 @@
 
 This repository contains all the code used in the study of hierarchical transformers for my master's thesis.
 
-## Topic
+## Topics
 
 Originally, this project aimed to design a new kind of hierarchical transformer for efficiently processing very large contexts, such as whole-slide images. This involved defining a forward and backward pass that iteratively updates tokens at each resolution, transmitting information from adjacent resolution levels. Unfortunately, this architecture did not demonstrate significant value in image classification tasks on CIFAR-10/100 and ImageNet-1K and was subsequently abandoned. The code for this can be found in models/encoders/sft/sft.py.
 
