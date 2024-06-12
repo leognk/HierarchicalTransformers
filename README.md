@@ -4,9 +4,11 @@ This repository contains all the code used in the study of hierarchical transfor
 
 ## Topics
 
-### New Hierarchical Transformer with Iterative Updates
+### New Hierarchical Transformer with Iteratively Refined Hierarchical RAM
 
-Originally, this project aimed to design a new kind of hierarchical transformer for efficiently processing very large contexts, such as whole-slide images. This involved defining a forward and backward pass that iteratively updates tokens at each resolution, transmitting information from adjacent resolution levels, and progressively improving the consistency of the representations at each level. Unfortunately, this architecture did not demonstrate significant value in image classification on CIFAR-10/100 and ImageNet-1K and was subsequently abandoned. However, it could show much more value on datasets with very large images and dense prediction tasks. The model is general, making it applicable to any modality such as video, audio, and text. The code can be found in models/encoders/sft/sft.py.
+The ambitious original motivation behind this project was to design a new kind of architecture that can generate very large content with *high consistency*, such as books or movies. While current models can computationally process large contexts, they cannot generate consistent, high-quality large content. Our proposed architecture is a new kind of hierarchical transformer that defines a hierarchical RAM-like memory that gets iteratively refined. It involves defining a forward and backward pass that iteratively updates tokens at each resolution (the hierarchical RAM) with cross-attention, transmitting information from adjacent resolution levels, and progressively improving the consistency of the representations at each level. Specifically, tokens at resolution level n query tokens at resolution level n - 1 (forward pass) or n + 1 (backward pass) to update their own representation with cross-attention. By doing so, after several updates, the generated content possesses high consistency at any scale.
+
+Unfortunately, in the preliminary experiments, this architecture did not demonstrate significant value in image classification on CIFAR-10/100 and ImageNet-1K and was subsequently abandoned. However, it could show much more value on datasets with very large images and dense prediction tasks, and for generating large content as originally intended. The model is general, making it applicable to any modality such as video, audio, and text. The code can be found in models/encoders/sft/sft.py.
 
 ### Hierarchical Transformer on Masked Autoencoding
 
